@@ -1,0 +1,13 @@
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\bin\Debug\netstandard2.1\Application.deps.json
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\bin\Debug\netstandard2.1\Application.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\bin\Debug\netstandard2.1\Application.pdb
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\bin\Debug\netstandard2.1\Domain.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\bin\Debug\netstandard2.1\Persistence.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\bin\Debug\netstandard2.1\Domain.pdb
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\bin\Debug\netstandard2.1\Persistence.pdb
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\obj\Debug\netstandard2.1\Application.csprojAssemblyReference.cache
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\obj\Debug\netstandard2.1\Application.AssemblyInfoInputs.cache
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\obj\Debug\netstandard2.1\Application.AssemblyInfo.cs
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\obj\Debug\netstandard2.1\Application.csproj.CopyComplete
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\obj\Debug\netstandard2.1\Application.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Application\obj\Debug\netstandard2.1\Application.pdb

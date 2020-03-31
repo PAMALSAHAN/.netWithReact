@@ -1,0 +1,37 @@
+USE KARANA EXTENSIONS 
+
+
+
+    Auto Close Tag
+    Auto Rename Tag
+    Bracket Pair Colorizer
+    C#
+    C# Extensions
+
+    ES7 React/Redux/GraphQL/React-Native snippets
+    GitHub Pull Requests
+
+    HTML CSS Support
+    Material Icon Theme
+    Material Theme Icons
+    NuGet Package Manager
+    Prettier - Code formatter
+
+    SQLite
+    vscode-icons
+    XML
+CONNECTION EKA SQLITE 
+     services.AddDbContext<DataContex>(option =>option.UseSqlite(Configuration.GetConnectionString("connection")));
+    
+     public DataContex(DbContextOptions opt) : base(opt)
+        {
+            
+        }
+        
+        public DbSet<Value> ValuesTbl { get; set; }  //value table eka hadanne mehemai
+    
+ENTITY FRAMEWORK 
+    CLI eka-dotnet ef migrations add Init -p .\Persistence\ -s .\API\ 
+        "Microsoft.EntityFrameworkCore" 
+        "Microsoft.EntityFrameworkCore.Sqlite.Core"  Persistence eke tinna one
+        "Microsoft.EntityFrameworkCore.Design" eka api eke tinna one

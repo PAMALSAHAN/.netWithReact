@@ -1,0 +1,11 @@
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.0\Persistence.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.0\Domain.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.0\Domain.pdb
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.0\Persistence.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.0\Persistence.pdb

@@ -1,0 +1,8 @@
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\bin\Debug\netstandard2.0\Domain.deps.json
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\bin\Debug\netstandard2.0\Domain.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\bin\Debug\netstandard2.0\Domain.pdb
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\obj\Debug\netstandard2.0\Domain.dll
+F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Domain\obj\Debug\netstandard2.0\Domain.pdb
