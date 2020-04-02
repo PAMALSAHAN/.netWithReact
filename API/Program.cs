@@ -13,8 +13,8 @@ namespace API
     {
         public static void Main(string[] args)
         {
-            // CreateHostBuilder(args).Build().Run(); mka thama mulin tinne 
-            var host= CreateWebHostBuilder(args).Build()
+            CreateHostBuilder(args).Build().Run(); //mka thama mulin tinne 
+            // var host= CreateWebHostBuilder(args).Build()
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
