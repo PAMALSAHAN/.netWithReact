@@ -20519,6 +20519,37 @@
     "CSharpLanguageVersion": 800
   },
   "RootNamespace": "API",
-  "Documents": [],
+  "Documents": [
+    {
+      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Details.cshtml",
+      "TargetPath": "Views\\Values\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Delete.cshtml",
+      "TargetPath": "Views\\Values\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Edit.cshtml",
+      "TargetPath": "Views\\Values\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Create.cshtml",
+      "TargetPath": "Views\\Values\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Index.cshtml",
+      "TargetPath": "Views\\Values\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
   "SerializationFormat": "0.2"
 }

@@ -29,9 +29,14 @@ CONNECTION EKA SQLITE
         }
         
         public DbSet<Value> ValuesTbl { get; set; }  //value table eka hadanne mehemai
-    
+-------------------------------------------------------------------------------------------------------------
 ENTITY FRAMEWORK 
-    CLI eka-dotnet ef migrations add Init -p .\Persistence\ -s .\API\ 
+        dotnet add package Microsoft.EntityFrameworkCore.Tools.DotNet
+        dotnet ef migrations add Init -p .\Persistence\ -s .\API\ 
+
+        dotnet ef migrations remove -p .\Persistence\ -s .\API\
+            -remove karana widiha
+
         "Microsoft.EntityFrameworkCore" 
         "Microsoft.EntityFrameworkCore.Sqlite.Core"  Persistence eke tinna one
         "Microsoft.EntityFrameworkCore.Design" eka api eke tinna one
@@ -39,3 +44,15 @@ ENTITY FRAMEWORK
     meken passe database eka hadaganna one migrations tibbata wadak naha.eka hinda Program.cs kiyana 
     eka edit karanna one
     
+    meka kalama hambenne migrations tika witharai 
+
+    dotnet aspnet-codegenerator controller -name ValuesController -m Value  -dc DataContex  --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries 
+        -meken views tika ganna ita passe -f dala palleha tina eka use karanna ethakota api ekata adala eka enawa
+    dotnet aspnet-codegenerator controller -name ValuesController -m Value  -dc DataContex  --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries -async -api -f  
+        -meken api ekata adala controller eka labenawa
+    
+    tama database ekawath entity FRAMEWORK ekawath hadila naha eka hinda 
+
+        dotnet ef database update Init -p .\Persistence.csproj -s ..\API\ 
+            meke dbcontext tina eka -p kiyala folder path eka denna -s kiyala startup tiyena folder eka denna 
+--------------------------------------------------------------------------------------------------------------------------

@@ -34,6 +34,12 @@
             "projectReferences": {
               "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Application\\Application.csproj": {
                 "projectPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Application\\Application.csproj"
+              },
+              "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj": {
+                "projectPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj"
+              },
+              "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj": {
+                "projectPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -48,8 +54,22 @@
         "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SQLite": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.2, )"
             }
           },
           "imports": [
@@ -238,11 +258,21 @@
       "frameworks": {
         "netstandard2.1": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.3, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
+            "Microsoft.EntityFrameworkCore.SQLite": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.0.0, )"
             }

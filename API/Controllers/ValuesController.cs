@@ -2,44 +2,109 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Domain;
+using Persistence;
 
-namespace DatingApp.API.Controllers
+namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+        private readonly DataContex _context;
+
+        public ValuesController(DataContex context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<ActionResult<IEnumerable<Value>>> GetValuesTbl()
         {
-            return new string[] { "value1", "value2" };
+            return await _context.ValuesTbl.ToListAsync();
         }
 
-        // GET api/values/5
+        // GET: api/Values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<ActionResult<Value>> GetValue(int id)
         {
-            return "value";
+            var value = await _context.ValuesTbl.FindAsync(id);
+
+            if (value == null)
+            {
+                return NotFound();
+            }
+
+            return value;
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
+        // PUT: api/Values/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutValue(int id, Value value)
         {
+            if (id != value.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(value).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ValueExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // POST: api/Values
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPost]
+        public async Task<ActionResult<Value>> PostValue(Value value)
         {
+            _context.ValuesTbl.Add(value);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetValue", new { id = value.Id }, value);
+        }
+
+        // DELETE: api/Values/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Value>> DeleteValue(int id)
+        {
+            var value = await _context.ValuesTbl.FindAsync(id);
+            if (value == null)
+            {
+                return NotFound();
+            }
+
+            _context.ValuesTbl.Remove(value);
+            await _context.SaveChangesAsync();
+
+            return value;
+        }
+
+        private bool ValueExists(int id)
+        {
+            return _context.ValuesTbl.Any(e => e.Id == id);
         }
     }
 }
