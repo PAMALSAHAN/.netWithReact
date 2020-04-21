@@ -62,3 +62,15 @@ entity framework eken hadala denawa db ekak.
 -------------------------------------------------------------------------------------------------------
 SEED DATA 
     mekedi karanne DataContex eke hardcode karala denawa code tikak.E tika thama liyanna tinne.
+
+         protected override void  OnModelCreating(ModelBuilder builder){
+            builder.Entity<Value>()
+            .HasData(
+                new Value{Id=1,Name="pamal"},
+                new Value{Id=2,Name="sahan"},
+                new Value{Id=3,Name="chamath"}
+            );
+        }
+    
+    meke OnModelCreating kiyanne dbcontext eke method ekak eka override karala thama data seed 
+    karanna one hinda meka karanne.value kiyanne model eke name eka.
