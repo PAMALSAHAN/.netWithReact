@@ -11,5 +11,12 @@ namespace Persistence
         }
         
         public DbSet<Value> ValuesTbl { get; set; }  //value table eka hadanne mehemai
+
+        protected void  OnModelCreating(ModelBuilder builder){
+            builder.Entity<Value>()
+            .HasData(
+                
+            )
+        }
     }
 }

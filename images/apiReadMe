@@ -56,3 +56,9 @@ ENTITY FRAMEWORK
         dotnet ef database update Init -p .\Persistence.csproj -s ..\API\ 
             meke dbcontext tina eka -p kiyala folder path eka denna -s kiyala startup tiyena folder eka denna 
 --------------------------------------------------------------------------------------------------------------------------
+ita passe karana eka db ekak natinam entiy frame work eka use karana widiha tinne.database eka hadala naththam 
+entity framework eken hadala denawa db ekak.
+    eka natiwa karanna -13 vedio eka
+-------------------------------------------------------------------------------------------------------
+SEED DATA 
+    mekedi karanne DataContex eke hardcode karala denawa code tikak.E tika thama liyanna tinne.
