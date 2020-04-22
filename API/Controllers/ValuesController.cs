@@ -14,32 +14,35 @@ namespace API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+
         private readonly DataContex _context;
 
         public ValuesController(DataContex context)
         {
-            _context = context;
+            this._context = context;
+
         }
 
         // GET: api/Values
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Value>>> GetValuesTbl()
         {
-            return await _context.ValuesTbl.ToListAsync();
+            var values= await _context.ValuesTbl.ToListAsync();
+            return Ok(values);
         }
 
         // GET: api/Values/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Value>> GetValue(int id)
         {
-            var value = await _context.ValuesTbl.FindAsync(id);
+            var value = await _context.ValuesTbl.FindAsync(id);  //single or default dannath puluwan.
 
             if (value == null)
             {
                 return NotFound();
             }
 
-            return value;
+            return Ok(value);
         }
 
         // PUT: api/Values/5

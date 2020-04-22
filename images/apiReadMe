@@ -74,3 +74,8 @@ SEED DATA
     
     meke OnModelCreating kiyanne dbcontext eke method ekak eka override karala thama data seed 
     karanna one hinda meka karanne.value kiyanne model eke name eka.
+        dotnet ef database update 
+    meka gahanna one project eka athulata gihilla.
+-------------------------------------------------------------------------------------------------------
+CONTROLLER EKEN DATA GANNA VIDIHA
+    mithana use karanne constructor dependancy injection ekak.
