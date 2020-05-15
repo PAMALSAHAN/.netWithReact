@@ -1,0 +1,60 @@
+package.json
+    meke thamai okkoma dependancies and scripts tinne
+
+node-modules
+    meke tinne dependancies install karala.
+
+public 
+    meke kotas k tinawa.
+        manifest.json
+            progressive web apps tinne.
+
+--------------------------------------------
+STARTING POINT
+    meke start wenne index.js walin 
+---------------------------------------------------
+TYPESCRIPT
+    mekedi mulinma karanne isisolatedModule kiyana eka false karana eka thmai.
+    : eken passe denne eke type eka.samaharak evva eken automatically gannawa.
+    habai name:string =24; kiyala denna baha.
+        let fen:number | string;
+        fen=24;
+        fen='pamal';
+    apita krama dekatama meka use karanna puluwan.
+
+            //making objects
+        const car1 :ICars={
+            color:"red",
+            brand:"alto"
+        }
+
+        const car2:ICars={
+            color:"red",
+            brand:"alto",
+            topSpeed:100
+        }
+
+        //for objects making interface
+        interface ICars {
+            color:string;
+            brand:string;
+            topSpeed?:number;
+
+        }
+
+        //car1 kiyana eka inherit karanna baha mokada eke topSpeed kiyala ekak 
+        //nathi hinda.eka nisa dekatama use karanna puluwan wenna eka optional karanna 
+        // one.
+            // eka karanne ? ekak dala.
+-----------------------------------------------------------------------------------------------
+demo.ts file eka balanna 
+//objects hadana widiha 
+//array hadana widiha
+------------------------------------------------------------
+CAR ITEM KIYALA COMPONENT EKAK HADANNA 
+    mekata use karanne caritem.tsx witharai COMPONENT eka hadila.
+    component hadana method dekak tinawa ekak thamai 
+        class component 
+        functional component
+    me daka use karala hadanna tinne.
+        *rafce gahanna functional componet eka hadenawa.
