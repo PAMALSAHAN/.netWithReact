@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj": {}
+    "F:\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj": {
+    "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
+        "projectUniqueName": "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
+        "projectPath": "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Chamath\\.nuget\\packages\\",
-        "outputPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\obj\\",
+        "outputPath": "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -61,14 +61,14 @@
         }
       }
     },
-    "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj": {
+    "F:\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "F:\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj",
+        "projectPath": "F:\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Chamath\\.nuget\\packages\\",
-        "outputPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\obj\\",
+        "outputPath": "F:\\udemy\\.net with react\\work\\.netWithReact\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -89,8 +89,8 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj": {
-                "projectPath": "F:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj"
+              "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj": {
+                "projectPath": "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj"
               }
             }
           }
@@ -117,10 +117,6 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools.DotNet": {
-              "target": "Package",
-              "version": "(, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

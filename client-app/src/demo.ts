@@ -6,6 +6,12 @@ let fen:number | string;
 fen=24;
 fen='pamal';
 
+export interface ICars {
+    color:string;
+    brand:string;
+    topSpeed?:number;
+
+}
 
 //making objects
 const car1 :ICars={
@@ -20,12 +26,7 @@ const car2:ICars={
 }
 
 //for objects making interface
-interface ICars {
-    color:string;
-    brand:string;
-    topSpeed?:number;
 
-}
 
 //car1 kiyana eka inherit karanna baha mokada eke topSpeed kiyala ekak 
 //nathi hinda.eka nisa dekatama use karanna puluwan wenna eka optional karanna 
@@ -55,4 +56,5 @@ const greatingMessage=(x:any,y:any) :string=>{
 //--------------------------------------------------------------------
 //making of array
 export const cars=[car1,car2];
+
 

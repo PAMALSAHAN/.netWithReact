@@ -81,4 +81,10 @@ CONTROLLER EKEN DATA GANNA VIDIHA
     mithana use karanne constructor dependancy injection ekak.
 -------------------------------------------------------------------------
 REACT WADA KARANA WIDIHA 
+    npx create-react-app client-app --use-npm --typescript
+        project eka hadana widiha.
+    npm start 
+        project eka run karanne meken.
+
+    
     

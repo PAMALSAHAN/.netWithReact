@@ -58,3 +58,69 @@ CAR ITEM KIYALA COMPONENT EKAK HADANNA
         functional component
     me daka use karala hadanna tinne.
         *rafce gahanna functional componet eka hadenawa.
+----------------------------------------------------------------------
+DECORATORS
+    "experimentalDecorators": true 
+        meka json file ekata add kara.issarahata one wena hinda.
+-----------------------------------------------------------------------
+PROPERTY 
+    meka use karanne app.tsx eke danawa 
+        <ul>
+          {cars.map((car)=>(
+          <CarItem cary={car}/>
+            //car eke meke proerty ekak widihata ganna puluwan.
+          ))}
+        </ul>
+    meka.ita passe CarItem eke hadanna one 
+
+        import React from 'react'
+        import {ICars} from './demo'
+        interface IPraps {
+            cary: ICars
+        }
+
+        const CarItem = (prps:IPraps) => {
+            return (
+                <div>
+                    <h1>{prps.cary.brand}</h1>
+                    <h1>{prps.cary.color}</h1>
+                </div>
+            )
+        }
+
+        export default CarItem
+----------------------------------------------------------------------
+STATE
+    mekedi karanne component ekata eka values tika tiyagannawa.
+    mekedi wenne 
+        component eka ahule api state ekak define karanawa.bohowita ctor 
+        eke.ita passe button ekak click karama apita state eka change wenna one 
+        kiyala hithamu ethakota karanne button ekata ekent handler ekak hadala 
+        setState eken state eka change wenna hadana eka.
+    state={
+        values:[]
+    }
+    me tinne ctor eke natiwa gahapu state ekak.ctor eke hadanawanaw karanna one
+    this.state={
+        values:[]
+    } 
+    kiyala hadanna one.
+
+-------------------------------------------------------------------------
+COMPONENT DID MOUNT
+    react ekaka mulin sidda wenne 
+        ctor,componentWillMount,render,componentDidMount
+    
+    mekedi ctor eke hari nathuwa hair state ekak null wa tibunai kiyanna.dan meka process
+    wenne issellla kiyapu widihata thama.
+        bt componentDidMount eke setState karala state eka wenas unoth aye render eka wada karanawa.
+    
+-------------------------------------------------------------------------------
+state ekai componentDidMount ekai dekama ekathu karala hadala denawa 
+-------------------------------------------------------------------------------
+AXIOS 
+    meka use karanne http client ekkenk widihata
+        npm install axios
+    meka use karanna.
+
+            

@@ -1,5 +1,5 @@
 {
-  "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\API.csproj",
+  "FilePath": "f:\\udemy\\.net with react\\work\\.netWithReact\\API\\API.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,32 +20521,32 @@
   "RootNamespace": "API",
   "Documents": [
     {
-      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Details.cshtml",
+      "FilePath": "f:\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Details.cshtml",
       "TargetPath": "Views\\Values\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Delete.cshtml",
-      "TargetPath": "Views\\Values\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Edit.cshtml",
-      "TargetPath": "Views\\Values\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Create.cshtml",
-      "TargetPath": "Views\\Values\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Index.cshtml",
+      "FilePath": "f:\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Index.cshtml",
       "TargetPath": "Views\\Values\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "f:\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Create.cshtml",
+      "TargetPath": "Views\\Values\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Edit.cshtml",
+      "TargetPath": "Views\\Values\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Values\\Delete.cshtml",
+      "TargetPath": "Views\\Values\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\udemy\\.net with react\\work\\.netWithReact\\API\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }

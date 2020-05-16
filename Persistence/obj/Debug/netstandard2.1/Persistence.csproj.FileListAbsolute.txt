@@ -9,3 +9,14 @@ F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\ne
 F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.csproj.CopyComplete
 F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.dll
 F:\pamal\pamal\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.pdb
+F:\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.1\Persistence.deps.json
+F:\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.1\Persistence.dll
+F:\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.1\Persistence.pdb
+F:\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.1\Domain.dll
+F:\udemy\.net with react\work\.netWithReact\Persistence\bin\Debug\netstandard2.1\Domain.pdb
+F:\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.csprojAssemblyReference.cache
+F:\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.AssemblyInfoInputs.cache
+F:\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.AssemblyInfo.cs
+F:\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.csproj.CopyComplete
+F:\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.dll
+F:\udemy\.net with react\work\.netWithReact\Persistence\obj\Debug\netstandard2.1\Persistence.pdb

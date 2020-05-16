@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
+      "projectUniqueName": "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
+      "projectPath": "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Chamath\\.nuget\\packages\\",
-      "outputPath": "f:\\pamal\\pamal\\udemy\\.net with react\\work\\.netWithReact\\Domain\\obj\\",
+      "outputPath": "F:\\udemy\\.net with react\\work\\.netWithReact\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
