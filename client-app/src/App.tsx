@@ -4,6 +4,7 @@ import './App.css';
 import { cars } from './demo'; /// import karapu ts file eka 
 import CarItem from './CarItem'; //car item eka export karaganne mehamai
 import axios from 'axios';
+import { Header, Icon, List } from 'semantic-ui-react' //sematic eka import dana eka.
 
 
 class App extends Component{
@@ -14,7 +15,7 @@ class App extends Component{
   componentDidMount(){
     axios.get('https://localhost:5001/api/values')
       .then((Response)=>{
-        console.log(Response);
+        
         this.setState({
           values:Response.data
         })
@@ -23,9 +24,10 @@ class App extends Component{
   }
   render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div >
+        {/* className="App" //div eke class name eka. */}
+        {/* <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" /> */}
           {/* <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
@@ -37,20 +39,41 @@ class App extends Component{
           >
             Learn React
           </a> */}
-          <ul>
+          {/* <ul>
           {this.state.values.map((val:any)=>(
-            <li>{val.name}</li>
+            <li key={val.id}>{val.name} is my name.</li>
           ))}
         </ul>
-        <h1>pamal</h1>
+         */}
 
-        </header>
+        {/* </header> */}
         {/* <ul>
           {cars.map((car)=>(
           <CarItem cary={car}/>
             //car eke meke proerty ekak widihata ganna puluwan.
           ))}
         </ul> */}
+        
+        {/* header ekak */}
+        
+        <Header as='h2'>
+        <Icon name='users' />
+        <Header.Content>Value list</Header.Content>
+        </Header>
+        {/* <ul>
+          {this.state.values.map((val:any)=>(
+            <li key={val.id}>{val.name} is my name.</li>
+          ))}
+        </ul> */}
+        <List>
+        {this.state.values.map((val:any)=>(
+            
+            <List.Item key={val.id}>{val.name} is my name</List.Item>
+          ))}
+          
+          
+        </List>
+        
         
       </div>
     );

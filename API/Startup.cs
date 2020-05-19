@@ -28,6 +28,13 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContex>(option =>option.UseSqlite(Configuration.GetConnectionString("connection")));
+            services.AddCors(opt=>
+            {
+                opt.AddPolicy("CorsPolicy",policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                });
+            });
             services.AddControllers();
         }
 
@@ -42,6 +49,8 @@ namespace API
            // app.UseHttpsRedirection();
            //meken karanne http request ekak https karala ewana eka
 
+            app.UseCors("CorsPolicy");
+            
             app.UseRouting();
 
             app.UseAuthorization();

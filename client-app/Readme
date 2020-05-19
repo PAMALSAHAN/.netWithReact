@@ -118,9 +118,37 @@ COMPONENT DID MOUNT
 -------------------------------------------------------------------------------
 state ekai componentDidMount ekai dekama ekathu karala hadala denawa 
 -------------------------------------------------------------------------------
-AXIOS 
+AXIOS FOR GET
     meka use karanne http client ekkenk widihata
         npm install axios
     meka use karanna.
+        axios.get('https://localhost:5001/api/values')
+      .then((Response)=>{
+        console.log(Response);
+        this.setState({
+          values:Response.data
+        })
+      })
+-------------------------------------------------------------------
+CORS FIXING
+    services.AddCors(opt=>
+            {
+                opt.AddPolicy("CorsPolicy",policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                });
+            });
+    
+    meka service configure eke danna tinne.
 
-            
+     app.UseCors("CorsPolicy");
+
+        meka app ekata danna one.
+---------------------------------------------------
+meke loop ekak yana hinda child attribute unique karanna one naththam
+warning ekak pennanawa.eka hinda karanna tinne id ekak li ekata dana eka.
+-----------------------------------------------------------
+SEMANTIC-REACT-UI 
+    wan gana wadak naha 
+        npm install semantic-ui-react 
+    meken thama install karanne.
