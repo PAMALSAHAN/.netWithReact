@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.ActivityTable;
@@ -18,10 +19,21 @@ namespace API.Controllers
 
         }
 
+
+        //Get all activity
         [HttpGet]
         public async Task<ActionResult<List<Activity>>> ListFromController(){
             
             return await _mediator.Send(new List.Query());
         }
+
+        //Get one activity
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Activity>> GetOneActivityController(Guid id){
+            
+            return await _mediator.Send(new Details.Query{Id=id});
+        }
+
+
     }
 }
