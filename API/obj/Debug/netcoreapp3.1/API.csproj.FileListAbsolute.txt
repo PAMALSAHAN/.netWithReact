@@ -328,3 +328,5 @@ F:\udemy\.net with react\work\.netWithReact\API\obj\Debug\netcoreapp3.1\API.View
 F:\udemy\.net with react\work\.netWithReact\API\obj\Debug\netcoreapp3.1\API.csproj.CopyComplete
 F:\udemy\.net with react\work\.netWithReact\API\obj\Debug\netcoreapp3.1\API.dll
 F:\udemy\.net with react\work\.netWithReact\API\obj\Debug\netcoreapp3.1\API.pdb
+F:\udemy\.net with react\work\.netWithReact\API\bin\Debug\netcoreapp3.1\MediatR.dll
+F:\udemy\.net with react\work\.netWithReact\API\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
