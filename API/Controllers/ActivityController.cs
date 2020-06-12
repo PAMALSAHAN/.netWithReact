@@ -34,6 +34,26 @@ namespace API.Controllers
             return await _mediator.Send(new Details.Query{Id=id});
         }
 
+        //post ekak dana eka
+        [HttpPost]
+        public async Task<ActionResult<Unit>> PostActivityController([FromBody]Create.Command command){
+                //methana frombody danna onema naha mokada apiController eka tina hinda. use karath awlak naha. 
+                return await _mediator.Send(command);
+        }
+
+        //update single activity
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> UpdateActivityController(Guid id, [FromBody]Edit.Command command){
+                command.Id=id;
+                return await _mediator.Send(command);
+        }
+
+        //delete an activity
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> DeleteActivityController(Guid id){
+            // id eka pass karanna one athulata.
+            return await _mediator.Send(new Delete.Command{Id=id});
+        }
 
     }
 }
