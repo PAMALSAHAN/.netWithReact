@@ -86,5 +86,217 @@ REACT WADA KARANA WIDIHA
     npm start 
         project eka run karanne meken.
 
+----------------------------------------------------------------------------------------------------
+4444444444
+    mekedi entity ekak hadana wa activity kiyala ekedi use karanawa 
+    GUID kiyala ekak.
+        eken karanne serverside eke hadannath puluwan client side eke hadannath puluwan.
+
+        class ekak hadanawa activity kiyala.ita passe eka dbcontext ekata set karanawa.
+
+             F:\udemy\.net with react\work\.netWithReact\API> dotnet ef migrations add addingActivity -p ..\Persistence\ 
+             F:\udemy\.net with react\work\.netWithReact\API> dotnet ef database update upadateActivity -p ..\Persistence\
+
+        
+    ------------------------------------------------------------------------------------------------------------------------
+    DATASEED 
+        mekedi karanne seed kiyala class ekak hadanawa Persistence eke itapasse function ekak hadanawa seed data kiyala.
+        ita passe karanne resource eken snippets ekak aran eka vscode ekata dana eka.ita passe karanne prefix eken eka acccess 
+        karala data tika ganna eka.
+            ita issella mokakhari work ekak wenawada kiyala balanna one. antimata save changes danawa.
+            data seed karanne eka parai eka hinda
+                 if (!context.ActivityTbl.Any())
+            {
+                use karanna one.antimata meka danna one
+                    context.ActivityTbl.AddRange(activities);
+                context.SaveChanges();
+            }
+
+            madata danna one
+            new Activity{
+                        Title="Past Activity 1",
+                        Date=DateTime.Now.AddMonths(-2),
+                        Description="Activity 2 months ago",
+                        Category="drinks",
+                        City="London",
+                        Venue="Pub",
+                    },
+
+            ekak thamai.use karanna one.
+    ------------------------------------------------------------------------------
+    CQRS AND mediatR
+        meke ekthara architecture ekak.use karana.api httpverbs tika kotas dekakata bedagannawa.
+
+        get    -------->Query             __________
+                                         |          |  ------->     Query handler
+        post   --------         -------> | mediatR  |
+        put    -------->Command          |          |  ------->     Command handler
+        delete --------                  |__________|
+
+        me dekama mediator kiyala ekakata set wenawa.mediatR eken karanne aye kotas dekata denawa.Query ewwa tika denawa 
+        Query ekak awoth eka mediatR eka denawa Query handler ekata.Command eken awoth eka denawa Command handler ekata.
+    --------------------------------------------------------------------------------------------------------------------
+    mekedi karanna tinne ActivityTbl eke tina data tika get karanna.
+    mediatR package eka add karanna one.meka install karanna one application lib eke mokada api eke controller eken Requests
+    send karanne application layer ekata nisa ethana thmai nuget eka danna one.
+
+        dotnet add package MediatR.Extensions.Microsoft.DependencyInjection 
+
+    application eke handler hadana eka thama karanna hadanne.
+
+    {buisness logic okkoma yanne application layer eke.}
+        eka large wenna pulwan hinda api karanna yanne eka eka feature eka anuwa folder wen karaganna eka.
+        ActivityTbl walata api wenawa folder ekak hadanawa aplication eke.
+            ActivityTbl eke class ekak hadanawa list kiyala onema namak denna puluwan awlak naha.
+            itapasse apita one table eken data ganna ne.e kiyanne Query ekak thama one.
+                ita passe karanna tinne controller eka hadana eka thamai.
+    -----------------------------------------------------------------------------------------------------------------------
+    ActivityController
+        public class ActivityController :ControllerBase
+            use karanna hethuwa thami api view kiyala ekak use karanne naha.ewenewata api use karanne react nisa ethanata 
+            controller base eka danna puluwan.
+                controller eke ctor ekak hadala mediator eka inject karanawa.
+                ita passe hadanawa async task function ekak.eken application eka call karala list eka gannawa.
+                DI widihata mediatR eka use karapu hinda startup eke services ekak widihata tiyanna one.
+            
+             {ActionResult}-Action methods return models to views, file streams, redirect to other controllers, or whatever is 
+                    necessary for the task at hand
+                public async Task<ActionResult<List<Activity>>> ListFromController(){
+            
+                    return await _mediator.Send(new List.Query());
+                }
+            methana new List kiyala use karala tinne 
+
+                services.AddMediatR(typeof(List.Handler).Assembly);
+
+            Assembly lacate wechcha thana thamai denna tine.
+    ------------------------------------------------------------------------------------------------------------------------------
+    CONTROLLER specific id ekakata adala data witharak retrive karaganna eka.
+        mekata hadanawa Details kiyala cs file ekak application eke.
     
-    
+    -----------------------------------------------------------------------------------------------------------------------------
+    CANSELATION TOKEN
+        meka use karanne naha project ekedi.meka use karala Requests ekak awama cansel krapanna puluwan.meka use nokala canse karata 
+        wadak na wade wenawa output eka thama pennanne naththe.
+    ------------------------------------------------------------------------------------------------------------------
+    CREATE.CS in Application 
+        meka use karanne activty ekak post karaganna.ekata hadagannama command class ekak ekka handler ekak.
+
+             public class Command : IRequest
+        { //methana create ne karanne get karanawanam thama <activity> e type data ganna hinda. 
+            public Guid Id { get; set; }
+            public string Title { get; set; }
+            public string Description { get; set; }
+            public string Category { get; set; }
+            public DateTime Date { get; set; }
+            public string City { get; set; }
+            public string Venue { get; set; }
+
+        }
+
+        public class Handler : IRequestHandler<Command>
+        {
+            private readonly DataContex _dataContex;
+            public Handler(DataContex dataContex)
+            {
+                _dataContex = dataContex;
+
+            }
+            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
+            {
+                var activity=new Activity{
+                    Id=request.Id,
+                    Title=request.Title,
+                    Description=request.Description,
+                    Category=request.Category,
+                    Date=request.Date,
+                    City=request.City,
+                    Venue=request.Venue
+                };
+
+                _dataContex.ActivityTbl.Add(activity);
+                //methana add witharak dala async danne naththe specific data ekak nowena hinda.
+
+                var success=await _dataContex.SaveChangesAsync() >0;
+                //methanadi karanne success eka bool ekak karana eka.mokada savechangesAsync dunnahama wenne int agaya 1 wena eka. 
+                // success naththam 0 hambenne.eka hinda use karanne 
+
+                if (success)
+                {
+                    return Unit.Value;
+                }
+                throw new Exception ("problem saving changes");
+
+
+            }
+        }
+
+        controller ekedi hadanne 
+            [HttpPost]
+        public async Task<ActionResult<Unit>> PostActivityController([FromBody]Create.Command command){
+                //methana frombody danna onema naha mokada apiController eka tina hinda. use karath awlak naha. 
+                return await _mediator.Send(command);
+        }
+    -------------------------------------------------------------------------------------------------------------------------------------------------
+    update
+        mekedi eka data ekak unath update karanna puluwan.
+        public class Command : IRequest
+                { 
+                    public Guid Id { get; set; }
+                    public string Title { get; set; }
+                    public string Description { get; set; }
+                    public string Category { get; set; }
+                    public DateTime ? Date  { get; set; }
+                    public string City { get; set; }
+                    public string Venue { get; set; }
+                }
+        
+                public class Handler : IRequestHandler<Command>
+                {
+                    private readonly DataContex _dataContex;
+                    public Handler(DataContex dataContex)
+                    {
+                        _dataContex = dataContex;
+        
+                    }
+                    public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
+                    {
+
+                        var activity = await  _dataContex.ActivityTbl.FindAsync(request.Id);
+                        //methanadi await kiyana eka use karana eka aniwaryen wadagath.mokada database ekata connect wena hinda. 
+                        if (activity == null)
+                            throw new Exception("could't find");
+
+                        activity.Title=request.Title ?? activity.Title;
+                        activity.Description=request.Description ?? activity.Description;
+                        activity.Category=request.Category ?? activity.Category;
+                        activity.Date=request.Date ?? activity.Date;
+                        //methanadi date ekata error ekak enawa null wenna baha kiyala 
+                        //eka hinda date eka laga ? ekak dannna.
+                        activity.City=request.City ?? activity.City;
+                        activity.Venue=request.Venue ?? activity.Venue;
+
+
+
+                        var success=await _dataContex.SaveChangesAsync() >0;
+                    
+                        if (success)
+                        {
+                            return Unit.Value;
+                        }
+                        throw new Exception ("problem saving changes");
+        
+        
+                    }
+                }
+
+            snippets eka use karala basic code eka ganne.
+    ------------------------------------------------------------------------------------------------------------------------------------
+    DELETE 
+        
+    mediatR use karana eke pradana wasiya thamai eka use karana kota ef eka ganawath use krana database eka ganawath worry wenna one naha.
+    ------------------------------------------------------------
+    5555 react eke
+    --------------------------------------------------------------------------
+
+

@@ -152,3 +152,157 @@ SEMANTIC-REACT-UI
     wan gana wadak naha 
         npm install semantic-ui-react 
     meken thama install karanne.
+-----------------------------------------------------------------
+55555555555555555
+    methanadi use karana project structure eka thmai feature eka anuwa category karana eka.
+    methods dekak tibbata use karanne me method eka thamai.
+        enisa project ekata app,feature kiyala folder dekak use karanawa.
+        app eka thule specificle one ewa danawa.individul features tika aneth folder ekata danawa.
+    
+    app eka athule layout folder ekak danawa eke danne project ekata adala layout tika witharai.
+    app.css ekai app.tsx eki wadak na issella code tina hinda man delete karanne naha.
+        app.tsx eka thama layout ekata danawa.
+        index.css kiyana eka styles.css karanawa.ekath layout folder ekata danawa.
+    
+    logo svg kiyana eka delete karanawa.
+        index.tsx eke index.css kiyala file eka styles.css wenna one.hariyata path eka denna.
+        app.tsx file eke path ekath denna.
+    
+    values walata hadapu eka change karaganna one activity ekata.pennanna one actity hinda.
+
+    <div >
+        {/* className="App" //div eke class name eka. */}
+        {/* <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" /> */}
+          {/* <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a> */}
+          {/* <ul>
+          {this.state.activities.map((val:any)=>(
+            <li key={val.id}>{val.name} is my name.</li>
+          ))}
+        </ul>
+         */}
+
+        {/* </header> */}
+        {/* <ul>
+          {cars.map((car)=>(
+          <CarItem cary={car}/>
+            //car eke meke proerty ekak widihata ganna puluwan.
+          ))}
+        </ul> */}
+        
+        {/* header ekak */}
+        
+        <Header as='h2'>
+        <Icon name='users' />
+        <Header.Content>Value list</Header.Content>
+        </Header>
+        {/* <ul>
+          {this.state.activities.map((val:any)=>(
+            <li key={val.id}>{val.name} is my name.</li>
+          ))}
+        </ul> */}
+        <List>
+        {this.state.activities.map((val:any)=>(
+            
+            <List.Item key={val.id}>{val.title} </List.Item>
+          ))}
+          
+          
+        </List>
+        
+        
+      </div>
+
+    return val ekata adala okkoma tika tinawa comment karapuwath tinawane e tika delete karanaw
+    --------------------------------------------------------------------------------------------------------
+    mekedi strongly type wela nathi hinda error ekak awath apita penne naha.eka hinda eka strongly type karanna one.
+        type check karanna api interface ekak use kranawa.class ekak use karannath puluwan.class ganne object hadanna wage 
+        ewata but apita one type check karaganna wage hinda karanna one ewagewa class ekak haduwoth wenne js walata change wennath one.
+        eka hinda interface eka use karana eka hodai.
+            app eke model kiyala folder ekak hadala eke activity.ts ekak hadanawa.
+        app.js ekata interface ekak dammahama eka component ekata add karanna one.meka Istate kiyala dammahama wenne state eke type 
+        eka pennanawa.ita passe state eke danna puluwan actity ewage array ekak pamanai.anit ewa danakota error ekak enawa.
+            state eka readonly karanawa.ethakota eka axios eke hari kohediwath aye edit karanna wenne naha.
+                anith eka axios waladi type eka any wela eka hinda type eka IActivity[] karagan get ekata issella eka use karanawa.
+        ita passe list ekedi val eka kelinma type eka IActivity welama tinawa.ethakota apita errors pennanawa.
+    -------------------------------------------------------------------------------------------------------------------------
+    issella use kare class component use karana eka.mekedi api use karanawa mekidi use karanne hooks.functional component use karana widiha
+    balamu.
+        hooks wala tina lesiya thami state and other features walata class ekak liyanne naha. effect hook wala tinawa componentDidMount ekka 
+        yana anith okkoma tika.
+    -------------------------------------------------------------------------------------------------------
+    refactor karanawa,
+        react class eka use karana.
+
+                    class App extends Component<{},Istate> {
+
+            readonly state :Istate={
+                activities:[] 
+            }
+                //https://localhost:5001/api/activities
+            componentDidMount(){
+                axios.get<IActivity[]>('https://localhost:5001/api/activity')
+                .then((Response)=>{
+                    
+                    this.setState({
+                    activities:Response.data
+                    })
+                })
+                
+            }
+            render(){
+                return (
+
+                <div >
+
+                    <Header as='h2'>
+                    <Icon name='users' />
+                    <Header.Content>Value list</Header.Content>
+                    </Header>
+
+                    <List>
+
+                    {this.state.activities.map((val)=>(
+
+                        <List.Item key={val.id}>{val.title} </List.Item>
+
+                    ))}
+                    
+                    </List>
+                    
+                </div>
+                );
+            }
+            
+            }
+    ------------------------------------------------------------------------------------------------------------------
+    react function ekedi state use kranne naha eka hinda   
+         // readonly state :Istate={
+        //   activities:[] 
+         // }
+    mewa ain wela yanawa.
+        class name eka tina eka 
+            const App =() => {
+        wela yanawa.
+    componentDidMount kiyana eka nathi wela yanawa.e ekkama render ekath nathi wela yanawa.
+
+            const [activityState,setActivity]=useState([]);
+            meke activityState kiyanne state eke nama.eka set karanna onene axios waladi ekata use karana function eka thama setActivity.
+            initialize karala tinne null kiyala.meke useState eka tinne neve kiyana default type eke.ekahinda eka IActivity kiyana ekata genna
+            one.
+    ----------------------------------------------------------------------------------------------------------------------
+    dan data ganna useeffectHook ekak use karanna one.
+        useEffect kiyala kiyanne lifecycle hooks thunak ekathu karala hadapu ekak.useEffect eke dinawa upadet MOUNT ekak monahari 
+        update ekak tiyeda kiyala balanna thama dala tinne.ehema wenne naththama eka digatama run wenawa.
+
+        componentDidMount,componentDidUpdate,componentWillUnmount me lifecycle method tinawa effectstate wala.

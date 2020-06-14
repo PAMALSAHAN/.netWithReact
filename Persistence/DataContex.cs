@@ -11,6 +11,7 @@ namespace Persistence
         }
         
         public DbSet<Value> ValuesTbl { get; set; }  //value table eka hadanne mehemai
+        public DbSet<Activity> ActivityTbl { get; set; } 
 
         protected override void  OnModelCreating(ModelBuilder builder){
             builder.Entity<Value>()
