@@ -306,3 +306,21 @@ SEMANTIC-REACT-UI
         update ekak tiyeda kiyala balanna thama dala tinne.ehema wenne naththama eka digatama run wenawa.
 
         componentDidMount,componentDidUpdate,componentWillUnmount me lifecycle method tinawa effectstate wala.
+    --------------------------------------------------------------------------------------------------------------------
+    NAVBAR 
+        feature eke nav kiyala folder ekak use karala eke navbar.tsx ekak hadanne.mekata use karanne rafc kiyana snippet eka.
+        rfc kiyalth ekak tinawa.bt use karanne react array function component kiyana eka.
+            mekata use karanne sementic ui kiyana eka.
+        nav bar eka app ekata daganna one.
+        
+        navbar eke element tika container ekak athule tinne.ethakota navbar eka athule tina ewwata padding set wenawa.poddak central wena
+        eka wenne.
+    -------------------------------------------------------------------------------------------------------------------------------
+    navbar eka add karanawa app.js ekata eke tina div tag eka ain karala fragment tag eka danawa.eka dammahama 
+    --------------------------------------------------------------------------------------------------------------------------------
+    ACTIVITY DASHBOARD
+        mekedi actitydashbord file ekak hadannawa.meke grid ekak hadala eke activities tika danna tinne.
+        mekedi <actitydashbord> kiyala container eke hadala dan actitydashbord ekata server eken data ganna one. ekata praperty ekak use karala
+        app eken state eke wena eka daganna one actitydashbord ekata.
+            <ActivityDashboard activityStateDashbord={activityState}></ActivityDashboard>
+        meka haduwa gaman activityStateDashbord kiyala ekak naha kiyala thami enne.e kiyanne ehema praperty ekak naha kiyala thma kiyanne.
