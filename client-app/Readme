@@ -323,4 +323,30 @@ SEMANTIC-REACT-UI
         mekedi <actitydashbord> kiyala container eke hadala dan actitydashbord ekata server eken data ganna one. ekata praperty ekak use karala
         app eken state eke wena eka daganna one actitydashbord ekata.
             <ActivityDashboard activityStateDashbord={activityState}></ActivityDashboard>
-        meka haduwa gaman activityStateDashbord kiyala ekak naha kiyala thami enne.e kiyanne ehema praperty ekak naha kiyala thma kiyanne.
+        meka haduwa gaman activityStateDashbord kiyala ekak naha kiyala thami enne.e kiyanne ehema praperty ekak naha kiyala thma kiyanne. ita passe 
+        actitydashbord eke hadanawa interface ekak IPraps kiyala 
+
+                            interface IProp {
+                                 activityStateDashbord: IActivity[]
+                             }
+                ita passe list ekak hadala eka yawanna tinne.
+                    <Grid>
+                        <Grid.Column width={10}>
+                            <List style={{ padding: "20px" }}>
+                                {activityStateDashbord.map((activity) => (
+                                    <List.Item key={activity.id}>{activity.title} </List.Item>
+                                    
+                                ))}
+                            </List>
+
+                        </Grid.Column>
+                    </Grid>
+            me widihata list ekata use karanna puluwan ethakota.
+    -----------------------------------------------------------------------------------------------------------------------------------
+    ACTIVITYLIST
+        methanadi use karanne semantic ui walin pennanawa.meka DASHBOARD eke hadala pennanawa.mekedi use karanawa segment ui eka eken karanne
+        list eka udata ussala denawa.mekedi proerty ekak widihata use karanne clearing kiyana eka.eken karanne floating tika clear karana eka.
+            eka eka data set eka divide karala pennanna one hinda karanna tinne item.group ekata divided kiala use karanawa.ehema karama wenne 
+            deka hodata bedila pennanawa. 
+                ita passe karanna tinne activity list eka database eken aran pennanna tinne.
+            
