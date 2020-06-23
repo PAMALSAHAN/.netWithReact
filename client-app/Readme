@@ -355,5 +355,29 @@ SEMANTIC-REACT-UI
         dana puluwan.sementic eka gird 16 kata bedala tinne eka hinda apita use karanna puluwan eka.
             meke use karana fluid eken wenne card eka ekkarawa tiyenawa.group ekak wage tinawanam eke dewal ekakaranawa tiyaganna one nam use karanna 
             puluwan ekak thma eka.button eka saha card eka use karanne me dekama thama.button deka evenly spread karanna withs={2} dennath puluwan.
+    -----------------------------------------------------------------------------------------------
+    ACTIVITY form 
+        mekedi use karanne activty form ekak.detail ganna.
+    --------------------------------------------------------------------------------------------------
+    ACTIVITY DETAILS State 
+        me state eka hadanna one DASHBOARD eke newe.mokada api create activity eka use karala activity ekak hadanawa. eka hinda eka state eke 
+        tiyaganna baha.eka hinda state eka hadanne app component eke.
+            app eke hadanama useState hook ekak. 
+                const [selectedActivityState, SelectedSetActivity] = useState<IActivity |null>(null);
+            meke type eka widita IActivity witharak deela madi.ehakota type eka widihata enne IActivity eka hari undefine eka hari.
+            eka hinda use karanna null eka ethakota awlak naha.id eken use karanna puluwan.
+                ita passe karanna tinne handler ekak hadana eka specific data eka ganna.
+                    const HandleSelectedActivity=(id:string)=>{
+                        SetSelectedActivity(activityState.filter(a=>a.id===id)[0]);
+                    }
 
+                mekedi use karanne activityState.filter kiyanne array ekak return karanawa. eka hinda ekata karanne [0] ekak dana eka.
+                HandleSelectedActivity method eka use karala karanna tinne eka activity DASHBOARD ekata use karanna one.
+                    selectActivity={HandleSelectedActivity}  
+                        meka pass karnawa bt error ekak ewanawa ekata karanna tinne IProp walata danna one.
+                    ita passe karanne activity list ekata selectActivity eka use karana eka.    
+                activity list eke dala tina view button eka click krahama thma activity eka state eka change wenne.specific id ekata 
+                hariyana activity eka hambenawa.
+                    ewagema Activity id ekata adala actity eka Activity detail ekata dennath one.
             
+    

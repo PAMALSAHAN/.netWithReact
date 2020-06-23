@@ -12,6 +12,14 @@ import { ActivityDashboard } from "../../features/activities/dashboard/ActivityD
 const App = () => {
   //set data
   const [activityState, setActivity] = useState<IActivity[]>([]);
+  //get specifi data
+  const [SelectedActivityState, SetSelectedActivity] = useState<IActivity |null>(null);
+
+  const HandleSelectedActivity=(id:string)=>{
+    SetSelectedActivity(activityState.filter(a=>a.id===id)[0]);
+
+  }
+  
 
   useEffect(() => {
     axios
@@ -26,7 +34,14 @@ const App = () => {
       <NavBar></NavBar>
 
       <Container style={{ marginTop: "7em" }}>
-        <ActivityDashboard activityStateDashbord={activityState}></ActivityDashboard>
+
+        <ActivityDashboard 
+          activityStateDashbord={activityState} 
+          selectActivity={HandleSelectedActivity} 
+          
+
+        />
+
       </Container>
 
     </Fragment>

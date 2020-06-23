@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Image, Icon, Button } from "semantic-ui-react";
 
 
+
 const ActivityDetails = () => {
     return (
         <Card fluid>
@@ -19,7 +20,7 @@ const ActivityDetails = () => {
             <Card.Content extra>
                 <Button.Group fluid>
                     <Button basic content="Edit" color="green" />
-                    <Button basic content="Cancel" color="blue" />
+                    <Button basic content="Cancel" color="blue" /> 
                 </Button.Group>
             </Card.Content>
         </Card>
