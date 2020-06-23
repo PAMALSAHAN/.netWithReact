@@ -2,6 +2,7 @@ import React from "react";
 import { List, Grid } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/Activity";
 import { ActivityList } from "./ActivityList";
+import ActivityDetails from "../details/ActivityDetails"
 
 interface IProp {
     activityStateDashbord: IActivity[]
@@ -19,6 +20,9 @@ export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord }) =>
                         ))}
                     </List> */}
 
+                </Grid.Column>
+                <Grid.Column width={6}>
+                    <ActivityDetails></ActivityDetails>
                 </Grid.Column>
             </Grid>
 

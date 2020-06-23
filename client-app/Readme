@@ -351,6 +351,9 @@ SEMANTIC-REACT-UI
                 ita passe karanna tinne activity list eka database eken aran pennanna tinne.
     ----------------------------------------------------------------------------------------------
     ACTIVITY DETAILS List
-        mekedi hadanne activity detail list ekak hadanawa.
-            
+        mekedi hadanne activity detail list ekak hadanawa.issella tina grid eke tinne grid eke Column width eka 10 i kiyala e kiyanne hawa with ekak 
+        dana puluwan.sementic eka gird 16 kata bedala tinne eka hinda apita use karanna puluwan eka.
+            meke use karana fluid eken wenne card eka ekkarawa tiyenawa.group ekak wage tinawanam eke dewal ekakaranawa tiyaganna one nam use karanna 
+            puluwan ekak thma eka.button eka saha card eka use karanne me dekama thama.button deka evenly spread karanna withs={2} dennath puluwan.
+
             
