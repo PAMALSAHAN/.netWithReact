@@ -17,6 +17,8 @@ const App = () => {
 
   const HandleSelectedActivity=(id:string)=>{
     SetSelectedActivity(activityState.filter(a=>a.id===id)[0]);
+    console.log(SetSelectedActivity);
+
 
   }
   
@@ -37,7 +39,10 @@ const App = () => {
 
         <ActivityDashboard 
           activityStateDashbord={activityState} 
+          
           selectActivity={HandleSelectedActivity} 
+
+          SelectedActivityState={SelectedActivityState}
           
 
         />

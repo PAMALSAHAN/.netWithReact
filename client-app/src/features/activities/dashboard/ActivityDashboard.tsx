@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/Activity";
 import { ActivityList } from "./ActivityList";
 import ActivityDetails from "../details/ActivityDetails"
@@ -8,12 +8,14 @@ import ActivityForm from "../form/ActivityForm"
 interface IProp {
     activityStateDashbord: IActivity[];
     selectActivity:(id:string)=>void;
+    SelectedActivityState:IActivity |null; 
 
 }
 export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selectActivity,SelectedActivityState}) => {
     return (
 
             <Grid>
+
                 <Grid.Column width={10}>
                     <ActivityList activityList={activityStateDashbord} selectActivity={selectActivity}  /> 
                     {/* <List style={{ padding: "20px" }}>
@@ -22,13 +24,14 @@ export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selec
                             
                         ))}
                     </List> */}
+                </Grid.Column>
 
-                </Grid.Column>
                 <Grid.Column  width={6}>
-                    <ActivityDetails DetailsSelectedActivityState={SelectedActivityState} ></ActivityDetails>
-                    
-                    <ActivityForm></ActivityForm>
+                    { SelectedActivityState && <ActivityDetails Activity={SelectedActivityState} />  }
+                
+                    <ActivityForm />
                 </Grid.Column>
+
             </Grid>
 
     );

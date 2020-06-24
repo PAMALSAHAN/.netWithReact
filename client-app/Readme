@@ -378,6 +378,11 @@ SEMANTIC-REACT-UI
                     ita passe karanne activity list ekata selectActivity eka use karana eka.    
                 activity list eke dala tina view button eka click krahama thma activity eka state eka change wenne.specific id ekata 
                 hariyana activity eka hambenawa.
-                    ewagema Activity id ekata adala actity eka Activity detail ekata dennath one.
+                    ewagema Activity id ekata adala actity eka Activity detail ekata dennath one.mehama activity eka pass karanakota 
+                app.tsx eke ActivityDashboard eke error ekak enawa. ekata karanna tinne null kiyala pre define karana eka witharai.
+                    mokada SelectedActivityState eka null kiyala difine karala tina hinda use karanakota eka use karana eka hodai.
+                dan activitydetali eka pennanna one null nathhama witharai naththam desabel wela tiyenna one eka hinda karanna tinne 
+                        activity detail eka gahanakota null eka gana attention eka denna one.
+                        
             
     
