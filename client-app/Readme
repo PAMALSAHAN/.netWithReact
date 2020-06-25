@@ -384,5 +384,43 @@ SEMANTIC-REACT-UI
                 dan activitydetali eka pennanna one null nathhama witharai naththam desabel wela tiyenna one eka hinda karanna tinne 
                         activity detail eka gahanakota null eka gana attention eka denna one.
                         
-            
+    ---------------------------------------------------------------------------------------------------------
+    mekedi karanne activity details eke edit eka click krahama edit karanna form eka ena eka.methanadi use karanawa modeState ekak
+        eken apita puluwan activity eka dakkama edit button eka press karahama form eka pennanna.
+             { SelectedActivityState && !modeState && <ActivityDetails Activity={SelectedActivityState} setMode={setMode} />  }
+            mekedi modeState eka henda thama ActivityDetails eke edit button eka press karahama form eka enne.
+                modelState eka true unama meka false wenawa.eka hinda set ekama false wena hinda wadakaranne naha.bt 
+                actityform eka true wena hinda karanna one 
+    --------------------------------------------------------------------------------------------------------
+    create Activity button eka 
+        mekedi karanne create button eka click karahama form eka display wennai one.ewagema Activity Detail eke
+        SetSelectedActivity eka null wennathh one e button eka click karahama.ethakota thmai form eka witharak enne.
+        naththma form ekai activitydetali dekama watenawa.
+            meke form ekta button dekak danawa eka floated karala tiyena hinda segment eke clearing danna one.
+        dan karanna tinne activity detail eke cansel button eka hadana eka.ekata karanna tinne 
+            SetSelectedActivity eka null karala dana eka.ethakota eka dissaper wenawa.
+    ------------------------------------------------------------------------------------------------------
+    ACTIVITY FORM 
+        mekata activity detail eka daganne activityState eke tina ewwa add krala.
+             const initializedForm=()=>{
+        if (SelectedActivityState) {
+            return SelectedActivityState
+        }
+        else{
+            return{
+                id:'',
+                title:'',
+                category:'',
+                description:'',
+                date:'',
+                city:'',
+                venue:'',
+
+            }
+        }
+    };
+
+    const [ActivityForm, setActivityForm] = useState<IActivity>(initializedForm);
+
+        me tika nathiwath wada karanawa.bt use karanawa mokada ethakota null nam use karanna puluwan.           
     

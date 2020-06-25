@@ -5,6 +5,8 @@ import { IActivity } from '../../../app/models/Activity';
 interface IProp {
     activityList: IActivity[];
     selectActivity:(id:string)=>void;
+    
+
 }
 export const ActivityList: React.FC<IProp> = ({ activityList ,selectActivity}) => {
     return (
@@ -20,6 +22,7 @@ export const ActivityList: React.FC<IProp> = ({ activityList ,selectActivity}) =
                                 <div>{activity.description}</div>
                                 <div>{activity.city},{activity.venue}</div>
                             </Item.Description>
+
                             <Item.Extra>
                                 <Button onClick={()=>selectActivity(activity.id)} floated="right" content="view" color="blue"></Button>
                                 <Label basic content={activity.category}></Label>

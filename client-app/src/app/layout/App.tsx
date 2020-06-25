@@ -13,15 +13,20 @@ const App = () => {
   //set data
   const [activityState, setActivity] = useState<IActivity[]>([]);
   //get specifi data
-  const [SelectedActivityState, SetSelectedActivity] = useState<IActivity |null>(null);
+  const [SelectedActivityState, SetSelectedActivity] = useState<IActivity | null>(null);
 
-  const HandleSelectedActivity=(id:string)=>{
-    SetSelectedActivity(activityState.filter(a=>a.id===id)[0]);
-    console.log(SetSelectedActivity);
-
-
+  const HandleSelectedActivity = (id: string) => {
+    SetSelectedActivity(activityState.filter(a => a.id === id)[0]);
   }
-  
+
+  const [modeState, setMode] = useState(false);
+
+  //create activity button ekata handle ekak hadana eka karanne.
+  const HandleOpenCreateForm = () => {
+    SetSelectedActivity(null);
+    setMode(true);
+  }
+
 
   useEffect(() => {
     axios
@@ -33,17 +38,22 @@ const App = () => {
 
   return (
     <Fragment>
-      <NavBar></NavBar>
+      <NavBar OpenCreateForm={HandleOpenCreateForm} ></NavBar>
 
       <Container style={{ marginTop: "7em" }}>
 
-        <ActivityDashboard 
-          activityStateDashbord={activityState} 
-          
-          selectActivity={HandleSelectedActivity} 
+        <ActivityDashboard
+          activityStateDashbord={activityState}
+
+          selectActivity={HandleSelectedActivity}
 
           SelectedActivityState={SelectedActivityState}
-          
+
+          modeState={modeState}
+
+          setMode={setMode}
+
+          SetSelectedActivity={SetSelectedActivity}
 
         />
 

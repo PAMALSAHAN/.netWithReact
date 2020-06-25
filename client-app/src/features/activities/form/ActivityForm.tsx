@@ -1,16 +1,46 @@
-import React from 'react'
-import { Segment, Form } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import { Segment, Form, Button } from 'semantic-ui-react'
+import { IActivity } from '../../../app/models/Activity'
 
-const ActivityForm = () => {
+interface IProp{
+    setMode:(modeState:boolean)=>void; 
+    SelectedActivityState:IActivity|null ; 
+}
+
+const ActivityForm :React.FC<IProp> = ({setMode,SelectedActivityState}) => {
+
+    const initializedForm=()=>{
+        if (SelectedActivityState) {
+            return SelectedActivityState
+        }
+        else{
+            return{
+                id:'',
+                title:'',
+                category:'',
+                description:'',
+                date:'',
+                city:'',
+                venue:'',
+
+            }
+        }
+    };
+
+    const [ActivityForm, setActivityForm] = useState<IActivity>(initializedForm);
+
+
     return (
-        <Segment>
-            <Form>
-                <Form.Input placeholder="Title"/>
-                <Form.TextArea rows={2} placeholder="Description"/>
-                <Form.Input placeholder="Category"/>
-                <Form.Input type="date" placeholder="Date"/>
-                <Form.Input placeholder="City"/>
-                <Form.Input placeholder="Venue"/>   
+        <Segment  clearing>
+            <Form >
+                <Form.Input placeholder="Title" value={SelectedActivityState?.title}  />
+                <Form.TextArea rows={2} placeholder="Description" value={SelectedActivityState?.description}/>
+                <Form.Input placeholder="Category" value={SelectedActivityState?.category}/>
+                <Form.Input type="date" placeholder="Date" value={SelectedActivityState?.date}/>
+                <Form.Input placeholder="City" value={SelectedActivityState?.city}/>
+                <Form.Input placeholder="Venue" value={SelectedActivityState?.venue}/> 
+                <Button floated='right' type="Submit" content="Submit" positive/>  
+                <Button onClick={()=>setMode(false)} floated='right' content="Cancel"/>  
 
             </Form>
         </Segment>

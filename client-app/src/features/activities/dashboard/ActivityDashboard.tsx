@@ -9,15 +9,18 @@ interface IProp {
     activityStateDashbord: IActivity[];
     selectActivity:(id:string)=>void;
     SelectedActivityState:IActivity |null; 
+    modeState:boolean;
+    setMode:(modeState:boolean)=>void; 
+    SetSelectedActivity:(activity:IActivity |null)=>void;
 
 }
-export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selectActivity,SelectedActivityState}) => {
+export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selectActivity,SelectedActivityState,modeState,setMode,SetSelectedActivity}) => {
     return (
 
             <Grid>
 
                 <Grid.Column width={10}>
-                    <ActivityList activityList={activityStateDashbord} selectActivity={selectActivity}  /> 
+                    <ActivityList activityList={activityStateDashbord} selectActivity={selectActivity}    /> 
                     {/* <List style={{ padding: "20px" }}>
                         {activityStateDashbord.map((activity) => (
                             <List.Item key={activity.id}>{activity.title} </List.Item>
@@ -27,9 +30,11 @@ export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selec
                 </Grid.Column>
 
                 <Grid.Column  width={6}>
-                    { SelectedActivityState && <ActivityDetails Activity={SelectedActivityState} />  }
-                
-                    <ActivityForm />
+
+                    { SelectedActivityState && !modeState && <ActivityDetails Activity={SelectedActivityState} setMode={setMode} SetSelectedActivity={SetSelectedActivity} />  }
+                    
+                    { modeState && <ActivityForm setMode={setMode} SelectedActivityState={SelectedActivityState} />}
+                    
                 </Grid.Column>
 
             </Grid>
