@@ -422,5 +422,11 @@ SEMANTIC-REACT-UI
 
     const [ActivityForm, setActivityForm] = useState<IActivity>(initializedForm);
 
-        me tika nathiwath wada karanawa.bt use karanawa mokada ethakota null nam use karanna puluwan.           
-    
+        me tika nathiwath wada karanawa.bt use karanawa mokada ethakota null nam use karanna puluwan.
+    ------------------------------------------------------------------------------------------------------------
+    UPDATE ACTIVITY FORM    
+        mekedi wenne actity form eke copy ekak tiyagannawa ekata kiyanne virtual dom eka kiyala. forme eka anith copy eka thami actiual 
+        dom eka kiyala kiyanne actual dom eke thami api dewal change karanna hadanne.actual eke change karahama virtual eka ekka compare 
+        karanawa change welanam eka change wenawa. makata state change wena seen eka one wenawa.eka hinda api use karanawa handle ekak.
+            meka hinda hama component ekema (inputekema) state eka gana hithanna one eka change wena eka gana hithanna one.ita passe thamai
+            handle eka use karala wade karanna one.
