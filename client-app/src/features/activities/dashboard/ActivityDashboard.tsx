@@ -12,9 +12,12 @@ interface IProp {
     modeState:boolean;
     setMode:(modeState:boolean)=>void; 
     SetSelectedActivity:(activity:IActivity |null)=>void;
+    createActivity:(activity:IActivity)=>void;
+    editActivity:(activity:IActivity)=>void;
+    
 
 }
-export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selectActivity,SelectedActivityState,modeState,setMode,SetSelectedActivity}) => {
+export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selectActivity,SelectedActivityState,modeState,setMode,SetSelectedActivity,createActivity,editActivity}) => {
     return (
 
             <Grid>
@@ -33,7 +36,12 @@ export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord,selec
 
                     { SelectedActivityState && !modeState && <ActivityDetails Activity={SelectedActivityState} setMode={setMode} SetSelectedActivity={SetSelectedActivity} />  }
                     
-                    { modeState && <ActivityForm setMode={setMode} SelectedActivityState={SelectedActivityState} />}
+                    { modeState && <ActivityForm 
+                        setMode={setMode} 
+                        SelectedActivityState={SelectedActivityState}
+                        createActivity={createActivity}
+                        editActivity={editActivity}
+                        />}
                     
                 </Grid.Column>
 

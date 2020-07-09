@@ -10,21 +10,36 @@ import { NavBar } from "../../features/nav/NavBar";
 import { ActivityDashboard } from "../../features/activities/dashboard/ActivityDashboard";
 
 const App = () => {
-  //set data
+  //set data activities ,setactivities meka use karanne activity ekak set karanna. 
   const [activityState, setActivity] = useState<IActivity[]>([]);
-  //get specifi data
+  //get specific data selectedActivity kiyana eka.
   const [SelectedActivityState, SetSelectedActivity] = useState<IActivity | null>(null);
+   
+  const [modeState, setMode] = useState(false);
 
   const HandleSelectedActivity = (id: string) => {
     SetSelectedActivity(activityState.filter(a => a.id === id)[0]);
   }
 
-  const [modeState, setMode] = useState(false);
+
 
   //create activity button ekata handle ekak hadana eka karanne.
   const HandleOpenCreateForm = () => {
     SetSelectedActivity(null);
     setMode(true);
+  }
+
+  //create an activity ekata handle ekak use karanna eka karanne
+  //mekedi spread operator eka use karala tina hinda activityState eka change wenawa meka use karana hinda.
+  const handleCreateActivity = (activity: IActivity) => {
+    setActivity([...activityState, activity])
+  }
+
+  //edit ekata handle method ekak use karanawa. 
+  // meke handle eken wenne api parameter ekak ekka tina activity eka hara athi okkoma filter karala aran ekata ara edit 
+  // karana handle eka dana eka thama karanne. 
+  const handleEditActivity = (activity: IActivity) => {
+    setActivity([...activityState.filter(a => a.id != activity.id), activity])
   }
 
 
@@ -54,6 +69,11 @@ const App = () => {
           setMode={setMode}
 
           SetSelectedActivity={SetSelectedActivity}
+
+          createActivity={handleCreateActivity}
+
+          editActivity={handleEditActivity}
+
 
         />
 

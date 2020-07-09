@@ -430,3 +430,52 @@ SEMANTIC-REACT-UI
         karanawa change welanam eka change wenawa. makata state change wena seen eka one wenawa.eka hinda api use karanawa handle ekak.
             meka hinda hama component ekema (inputekema) state eka gana hithanna one eka change wena eka gana hithanna one.ita passe thamai
             handle eka use karala wade karanna one.
+                const HandleChangeInput=(event:any)=>{
+        setActivityForm({...ActivityFormState, title:event.target.value}) 
+    }
+    dan meka tinne placehoder eke namatane eka apita name eke namata wenas karaganna puluwan.ekata karanna one target value eka name eken ena
+    vidihata karanna puluwan.
+        event parameter eka any deelatinne eka api strongly type eka denna one.Change event kiyana eka textarea ekata set wenne naha.eka hinda 
+        api denna one 
+                 const HandleChangeInput = (event: FormEvent<HTMLInputElement |HTMLTextAreaElement >) => {
+        const { name, value } = event.currentTarget;
+        setActivityForm({ ...ActivityFormState, [name]: value })
+    }
+
+        textarea tina hinda thamai form event awe.naththam use karanne change event eka. 
+            const { name, value } = event.currentTarget;
+                meka wenas une formevent eka use karapu hinda.
+
+        ... operator eken karanne tiyena array eka edit karanna puluwan wena eka.
+    --------------------------------------------------------------------------------------
+    ONSUBMIT
+     mekedi handle ekak use karanawa handlionsubmit kiyala eka use karala form eke ONSUBMIT ekak hadala ekata pass karanawa.
+
+    ------------------------------------------------------------------------------------------
+    HANDLECREATEACTIVITY,HANDLEEDITACTIVITY 
+    create activity ,edit activity kiyala handle dekak hadala dashboard ekata pass karanawa.dashboard eke IProp wala signature 
+    eka liyala pass karanna one.
+    -------------------------------------------------------------------------------------------------------------------
+        INTRODUCTION TO mobex
+
+         <ActivityDashboard
+          activityStateDashbord={activityState}
+
+          selectActivity={HandleSelectedActivity}
+
+          SelectedActivityState={SelectedActivityState}
+
+          modeState={modeState}
+
+          setMode={setMode}
+
+          SetSelectedActivity={SetSelectedActivity}
+
+          createActivity={handleCreateActivity}
+
+          editActivity={handleEditActivity}
+          
+
+        />
+            mekedi project eka wadi wenna wadi wenna mekata use karana handle ganana wadi wenawa.eka hinda meka manage karaganna one
+            ekata karanne state management system ekak use karana eka. ekata karanne mobex use karana eka.
