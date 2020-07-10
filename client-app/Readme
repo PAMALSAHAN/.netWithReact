@@ -479,3 +479,7 @@ SEMANTIC-REACT-UI
         />
             mekedi project eka wadi wenna wadi wenna mekata use karana handle ganana wadi wenawa.eka hinda meka manage karaganna one
             ekata karanne state management system ekak use karana eka. ekata karanne mobex use karana eka.
+
+    ----------------------------------------------------------------------
+    npm install uuid
+        use karanawa guid eka install karanna.

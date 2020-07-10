@@ -40,8 +40,17 @@ const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState, createA
     //submit ekata handle ekak gahanwa.  meke create ekai edit ekai dekama karaganna one. eka hinda 
     // karanne check karala balanawa id eka null da kiyala e kiyanne alith activty ekak create karanna one.
     // id eka null naththam karannne edit. ethakota submit button eka click karanna tinne ethakota. 
-    const handleSubmit=()=>{
-        if(acti)
+    const handleSubmit = () => {
+        if (ActivityFormState.id.length===0){
+            let newActivity ={
+                ...ActivityFormState,
+                id:'guid'
+            }
+            createActivity(newActivity);
+        }
+        else{
+            editActivity(ActivityFormState);
+        }
     }
 
 
