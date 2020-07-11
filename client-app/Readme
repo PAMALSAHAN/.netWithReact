@@ -482,4 +482,30 @@ SEMANTIC-REACT-UI
 
     ----------------------------------------------------------------------
     npm install uuid
-        use karanawa guid eka install karanna.
+        use karanawa guid eka install karanna. eka import karanna one.
+            import { v4 as uuid } from 'uuid'; 
+        mekedi error ekak denawanam uuid walin karanna tinne 
+             npm install @types/uuid 
+             install karana eka.
+
+    -------------------------------------------------------------------------------------------------
+    EDIT dom
+         //activity eka form eke tina kiyana adahasa tinne. activity, setActivity  ActivityFormState
+    const [SelectedActivityState, setSelectedActivityState] = useState<IActivity>(initializedForm);
+
+    const HandleChangeInput = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.currentTarget;
+        setSelectedActivityState({ ...SelectedActivityState, [name]: value })
+    } 
+
+    mekedi karanne selectedActivityState kiyala dala tinne ActivityFormState dala hariyanne nha ethaketa update karanna denne hada.
+    eka hinda karanna tinna hodama de thami Iprop ekata selected activtiy ena ekame userState ekak hadala eka use karana eka.
+    -------------------------------------------------------------------------------------------------------
+    form eka open wela tina kota view button eka click karata wada karanne naha ekata karanna tinne setmode eka false karana eka.
+    -----------------------------------------------------------------------------------------------------
+    apita hadanna one edit mode eke tina form eka create activity kiyala dunnama form eke data null wenna one.
+    mekata karanna one key ekak dana eka.wenne methana Iprop eka null wenawa habai state eka change wenne nha mekata function ekakma 
+    liyanne nathiwa karanna puluwan ekak thama key ekak use karana eka.
+    ------------------------------------------------------------------------------------------------
+    date ekath ekka ena period eka nathi karaganna one ekata karanna tinne.data ganne api ekenne ekedi filter karana eka thama kranna tinne.
+    

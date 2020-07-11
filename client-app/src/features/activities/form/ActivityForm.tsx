@@ -1,19 +1,20 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react'
+import React, { useState,  FormEvent } from 'react'
 import { Segment, Form, Button } from 'semantic-ui-react'
 import { IActivity } from '../../../app/models/Activity'
+import { v4 as uuid } from 'uuid';
 
 interface IProp {
     setMode: (modeState: boolean) => void;
-    SelectedActivityState: IActivity | null;
+    SelectedActivityState: IActivity; //activity kiyana eka
     createActivity: (activity: IActivity) => void;
     editActivity: (activity: IActivity) => void;
 }
 
-const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState, createActivity, editActivity }) => {
+const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState:initialFormState, createActivity, editActivity }) => {
 
     const initializedForm = () => {
-        if (SelectedActivityState) {
-            return SelectedActivityState
+        if (initialFormState) {
+            return initialFormState
         }
         else {
             return {
@@ -29,34 +30,36 @@ const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState, createA
         }
     };
 
-    //activity eka form eke tina kiyana adahasa tinne. activity, setActivity 
-    const [ActivityFormState, setActivityForm] = useState<IActivity>(initializedForm);
+    //activity eka form eke tina kiyana adahasa tinne. activity, setActivity  ActivityFormState
+    const [SelectedActivityState, setSelectedActivityState] = useState<IActivity>(initializedForm);
 
     const HandleChangeInput = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.currentTarget;
-        setActivityForm({ ...ActivityFormState, [name]: value })
-    }
+        setSelectedActivityState({ ...SelectedActivityState, [name]: value })
+    } 
 
     //submit ekata handle ekak gahanwa.  meke create ekai edit ekai dekama karaganna one. eka hinda 
     // karanne check karala balanawa id eka null da kiyala e kiyanne alith activty ekak create karanna one.
     // id eka null naththam karannne edit. ethakota submit button eka click karanna tinne ethakota. 
     const handleSubmit = () => {
-        if (ActivityFormState.id.length===0){
+        if (SelectedActivityState.id.length===0){
             let newActivity ={
-                ...ActivityFormState,
-                id:'guid'
+                ...SelectedActivityState,
+                id:uuid()
             }
             createActivity(newActivity);
         }
         else{
-            editActivity(ActivityFormState);
+            editActivity(SelectedActivityState);
         }
+
+        console.log(SelectedActivityState);
     }
 
 
     return (
         <Segment clearing>
-            <Form >
+            <Form onSubmit={handleSubmit} >
                 <Form.Input
                     onChange={HandleChangeInput}
                     name="title"
@@ -77,7 +80,7 @@ const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState, createA
                     value={SelectedActivityState?.category} />
 
                 <Form.Input
-                    type="date"
+                    type="datetime-local"
                     name="date"
                     onChange={HandleChangeInput}
                     placeholder="Date"

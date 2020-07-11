@@ -19,7 +19,9 @@ const App = () => {
 
   const HandleSelectedActivity = (id: string) => {
     SetSelectedActivity(activityState.filter(a => a.id === id)[0]);
+    setMode(false);
   }
+
 
 
 
@@ -32,22 +34,39 @@ const App = () => {
   //create an activity ekata handle ekak use karanna eka karanne
   //mekedi spread operator eka use karala tina hinda activityState eka change wenawa meka use karana hinda.
   const handleCreateActivity = (activity: IActivity) => {
-    setActivity([...activityState, activity])
+    setActivity([...activityState, activity]);
+    SetSelectedActivity(activity);
+    setMode(false);
+
   }
 
   //edit ekata handle method ekak use karanawa. 
   // meke handle eken wenne api parameter ekak ekka tina activity eka hara athi okkoma filter karala aran ekata ara edit 
   // karana handle eka dana eka thama karanne. 
   const handleEditActivity = (activity: IActivity) => {
-    setActivity([...activityState.filter(a => a.id != activity.id), activity])
+    setActivity([...activityState.filter(a => a.id !== activity.id), activity]);
+    //medeka dammahama detalis eke edit karama eka pennanawa.
+    SetSelectedActivity(activity);
+    setMode(false);
   }
+
+  const HandleDeleteActivity=(id:string)=>{
+    setActivity([...activityState.filter(a=> a.id !== id)])
+  }
+
 
 
   useEffect(() => {
     axios
       .get<IActivity[]>("https://localhost:5001/api/activity")
       .then((Response) => {
-        setActivity(Response.data);
+        //date eka split karanna use kranne.
+        let activityState:IActivity[]=[]; //state ma wenna one naha kamathi ekak use kranna puluwan.
+        Response.data.forEach(activity=>{
+          activity.date=activity.date.split('.')[0];
+          activityState.push(activity);
+        });
+        setActivity(activityState);
       });
   }, []);
 
@@ -73,6 +92,8 @@ const App = () => {
           createActivity={handleCreateActivity}
 
           editActivity={handleEditActivity}
+
+          deleteActivity={HandleDeleteActivity}
 
 
         />

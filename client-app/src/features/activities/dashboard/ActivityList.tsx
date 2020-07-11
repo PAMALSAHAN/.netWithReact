@@ -5,10 +5,10 @@ import { IActivity } from '../../../app/models/Activity';
 interface IProp {
     activityList: IActivity[];
     selectActivity:(id:string)=>void;
-    
+    deleteActivity:(id:string)=>void;
 
 }
-export const ActivityList: React.FC<IProp> = ({ activityList ,selectActivity}) => {
+export const ActivityList: React.FC<IProp> = ({ activityList ,selectActivity,deleteActivity}) => {
     return (
 
         <Segment clearing>
@@ -25,7 +25,8 @@ export const ActivityList: React.FC<IProp> = ({ activityList ,selectActivity}) =
 
                             <Item.Extra>
                                 <Button onClick={()=>selectActivity(activity.id)} floated="right" content="view" color="blue"></Button>
-                                <Label basic content={activity.category}></Label>
+                                <Button onClick={()=>deleteActivity(activity.id)} floated="right" content="delete" color="red"></Button>
+                                <Label basic content={activity.category}></Label> 
                             </Item.Extra> 
                         </Item.Content>
                     </Item>
