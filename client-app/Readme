@@ -317,6 +317,8 @@ SEMANTIC-REACT-UI
         eka wenne.
     -------------------------------------------------------------------------------------------------------------------------------
     navbar eka add karanawa app.js ekata eke tina div tag eka ain karala fragment tag eka danawa.eka dammahama 
+        fragment eka danne div dekak thunak tinakota render karanna baha.eka hinda thani div ekata dala render karanna one.
+        eke wena wena awul tina hinda kranne fragment use karana eka.
     --------------------------------------------------------------------------------------------------------------------------------
     ACTIVITY DASHBOARD
         mekedi actitydashbord file ekak hadannawa.meke grid ekak hadala eke activities tika danna tinne.
