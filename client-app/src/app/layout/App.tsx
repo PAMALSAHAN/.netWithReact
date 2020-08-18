@@ -2,12 +2,13 @@ import React, { useState, useEffect, Fragment } from "react";
 
 //import { cars } from './demo'; /// import karapu ts file eka
 //import CarItem from './CarItem'; //car item eka export karaganne mehamai
-import axios from "axios";
+
 import { Container } from "semantic-ui-react"; //sematic eka import dana eka.
 
 import { IActivity } from "../models/Activity";
 import { NavBar } from "../../features/nav/NavBar";
 import { ActivityDashboard } from "../../features/activities/dashboard/ActivityDashboard";
+import agent from "../api/agent";
 
 const App = () => {
   //set data activities ,setactivities meka use karanne activity ekak set karanna. 
@@ -57,12 +58,11 @@ const App = () => {
 
 
   useEffect(() => {
-    axios
-      .get<IActivity[]>("https://localhost:5001/api/activity")
+  agent.Activities.list()
       .then((Response) => {
         //date eka split karanna use kranne.
         let activityState:IActivity[]=[]; //state ma wenna one naha kamathi ekak use kranna puluwan.
-        Response.data.forEach(activity=>{
+        Response.forEach((activity)=>{  
           activity.date=activity.date.split('.')[0];
           activityState.push(activity);
         });
