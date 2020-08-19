@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { Grid } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/Activity";
 import { ActivityList } from "./ActivityList";
@@ -14,18 +14,24 @@ interface IProp {
     SetSelectedActivity: (activity: IActivity | null) => void;
     createActivity: (activity: IActivity) => void;
     editActivity: (activity: IActivity) => void;
-
-    deleteActivity: (id: string) => void;
+    deleteActivity: (e:SyntheticEvent<HTMLButtonElement>,id: string) => void;
+    submitting:boolean;
+    target:string;
 
 
 }
-export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord, selectActivity, SelectedActivityState, modeState, setMode, SetSelectedActivity, createActivity, editActivity, deleteActivity }) => {
+export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord, selectActivity, SelectedActivityState, modeState, setMode, SetSelectedActivity, createActivity, editActivity, deleteActivity,submitting,target}) => {
     return (
 
         <Grid>
 
             <Grid.Column width={10}>
-                <ActivityList activityList={activityStateDashbord} selectActivity={selectActivity} deleteActivity={deleteActivity} />
+                <ActivityList 
+                    target={target}
+                    activityList={activityStateDashbord} 
+                    selectActivity={selectActivity} 
+                    deleteActivity={deleteActivity} 
+                    submitting={submitting} />
                 {/* <List style={{ padding: "20px" }}>
                         {activityStateDashbord.map((activity) => (
                             <List.Item key={activity.id}>{activity.title} </List.Item>
@@ -45,6 +51,7 @@ export const ActivityDashboard: React.FC<IProp> = ({ activityStateDashbord, sele
                     SelectedActivityState={SelectedActivityState!}
                     createActivity={createActivity}
                     editActivity={editActivity} 
+                    submitting={submitting}
 
                 />}
 

@@ -8,9 +8,10 @@ interface IProp {
     SelectedActivityState: IActivity; //activity kiyana eka
     createActivity: (activity: IActivity) => void;
     editActivity: (activity: IActivity) => void;
+    submitting:boolean;
 }
 
-const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState:initialFormState, createActivity, editActivity }) => {
+const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState:initialFormState, createActivity, editActivity,  submitting }) => {
 
     const initializedForm = () => {
         if (initialFormState) {
@@ -99,6 +100,7 @@ const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState:initialF
                     value={SelectedActivityState?.venue} />
 
                 <Button
+                    loading={submitting}
                     floated='right'
                     type="Submit"
                     content="Submit"
