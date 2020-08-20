@@ -1,18 +1,21 @@
-import React, { useState, useEffect, Fragment, SyntheticEvent } from "react";
+import React, { useState, useEffect, Fragment, SyntheticEvent, useContext } from "react";
 
 //import { cars } from './demo'; /// import karapu ts file eka
 //import CarItem from './CarItem'; //car item eka export karaganne mehamai
 
 import { Container } from "semantic-ui-react"; //sematic eka import dana eka.
-
 import { IActivity } from "../models/Activity";
-import { NavBar } from "../../features/nav/NavBar";
-import { ActivityDashboard } from "../../features/activities/dashboard/ActivityDashboard";
+import  NavBar  from "../../features/nav/NavBar";
+import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import agent from "../api/agent";
-
 import { LoadingComponent } from "../layout/LoadingComponent";
+import  ActivityStore  from "../stores/activityStore";
+import { observer } from "mobx-react-lite";
 
 const App = () => {
+  //activity store ekak use karanna tinne 
+  // const activityStore = useContext(ActivityStore);
+  const activityStore = useContext(ActivityStore);
   //set data activities ,setactivities meka use karanne activity ekak set karanna. 
   const [activityState, setActivity] = useState<IActivity[]>([]);
   //get specific data selectedActivity kiyana eka.
@@ -29,104 +32,97 @@ const App = () => {
   //target eka ganna hadana ekak
   const [target, setTarget] = useState('');
 
-  const HandleSelectedActivity = (id: string) => {
-    SetSelectedActivity(activityState.filter(a => a.id === id)[0]);
-    setMode(false);
-  }
+  // const HandleSelectedActivity = (id: string) => {
+  //   SetSelectedActivity(activityState.filter(a => a.id === id)[0]);
+  //   setMode(false);
+  // }
 
 
 
 
   //create activity button ekata handle ekak hadana eka karanne.
-  const HandleOpenCreateForm = () => {
-    SetSelectedActivity(null);
-    setMode(true);
-  }
+  // const HandleOpenCreateForm = () => {
+  //   SetSelectedActivity(null);
+  //   setMode(true);
+  // }
 
   //create an activity ekata handle ekak use karanna eka karanne
   //mekedi spread operator eka use karala tina hinda activityState eka change wenawa meka use karana hinda.
-  const handleCreateActivity = (activity: IActivity) => { 
-    setSubmitting(true)
-    agent.Activities.create(activity).then(()=>{
-      setActivity([...activityState, activity]);
-      SetSelectedActivity(activity);
-      setMode(false);
-    }).then(()=>setSubmitting(false));
+  // const handleCreateActivity = (activity: IActivity) => { 
+  //   setSubmitting(true)
+  //   agent.Activities.create(activity).then(()=>{
+  //     setActivity([...activityState, activity]);
+  //     SetSelectedActivity(activity);
+  //     setMode(false);
+  //   }).then(()=>setSubmitting(false));
     
 
-  }
+  // }
 
   //edit ekata handle method ekak use karanawa. 
   // meke handle eken wenne api parameter ekak ekka tina activity eka hara athi okkoma filter karala aran ekata ara edit 
   // karana handle eka dana eka thama karanne. 
-  const handleEditActivity = (activity: IActivity) => {
-    setSubmitting(true);
-    agent.Activities.update(activity).then(()=>{
-      setActivity([...activityState.filter(a => a.id !== activity.id), activity]);
-      //medeka dammahama detalis eke edit karama eka pennanawa.
-      SetSelectedActivity(activity);
-      setMode(false);
-    }).then(()=>setSubmitting(false));
+  // const handleEditActivity = (activity: IActivity) => {
+  //   setSubmitting(true);
+  //   agent.Activities.update(activity).then(()=>{
+  //     setActivity([...activityState.filter(a => a.id !== activity.id), activity]);
+  //     //medeka dammahama detalis eke edit karama eka pennanawa.
+  //     SetSelectedActivity(activity);
+  //     setMode(false);
+  //   }).then(()=>setSubmitting(false));
   
-  }
+  // }
 
-  const HandleDeleteActivity=(event:SyntheticEvent<HTMLButtonElement> ,id:string)=>{
-    setSubmitting(true);
-    //click kalama adala name eka ganna. 
-    setTarget(event.currentTarget.name);
-    agent.Activities.delete(id).then(()=>{
-      setActivity([...activityState.filter(a=> a.id !== id)])
-    }).then(()=>setSubmitting(false));
+  // const HandleDeleteActivity=(event:SyntheticEvent<HTMLButtonElement> ,id:string)=>{
+  //   setSubmitting(true);
+  //   //click kalama adala name eka ganna. 
+  //   setTarget(event.currentTarget.name);
+  //   agent.Activities.delete(id).then(()=>{
+  //     setActivity([...activityState.filter(a=> a.id !== id)])
+  //   }).then(()=>setSubmitting(false));
   
-  }
+  // }
 
 
 
   useEffect(() => {
-  agent.Activities.list()
-      .then((Response) => {
-        //date eka split karanna use kranne.
-        let activityState:IActivity[]=[]; //state ma wenna one naha kamathi ekak use kranna puluwan.
-        Response.forEach((activity)=>{  
-          activity.date=activity.date.split('.')[0];
-          activityState.push(activity);
-        });
-        setActivity(activityState);
-      }).then(()=>setLoading(false));
-  }, []);
+    activityStore.loadActivities(); //mobex exen gnalla danne
+  }, [activityStore]);  //methana dependancy eka add karanna one aniwaryenma.
 
-  if (loading) {
+  if (activityStore.loadingInitial) {
     return <LoadingComponent content={"loading activities"} />
   }
 
   return (
     <Fragment>
-      <NavBar OpenCreateForm={HandleOpenCreateForm} ></NavBar>
+      <NavBar 
+      // OpenCreateForm={HandleOpenCreateForm} 
+      />
 
       <Container style={{ marginTop: "7em" }}>
-
+        
         <ActivityDashboard
-          activityStateDashbord={activityState}
+          // activityStateDashbord={activityStore.activities}
 
-          selectActivity={HandleSelectedActivity}
+          // selectActivity={HandleSelectedActivity}
 
-          SelectedActivityState={SelectedActivityState}
+          // SelectedActivityState={SelectedActivityState}
 
-          modeState={modeState}
+          // modeState={modeState}
 
-          setMode={setMode}
+          // setMode={setMode}
 
-          SetSelectedActivity={SetSelectedActivity}
+          // SetSelectedActivity={SetSelectedActivity}
 
-          createActivity={handleCreateActivity}
+          // createActivity={handleCreateActivity}
 
-          editActivity={handleEditActivity}
+          // editActivity={handleEditActivity}
 
-          deleteActivity={HandleDeleteActivity}
+          // deleteActivity={HandleDeleteActivity}
 
-          submitting={submitting}
+          // submitting={submitting}
 
-          target={target}
+          // target={target}
 
 
         />
@@ -136,4 +132,4 @@ const App = () => {
     </Fragment>
   );
 };
-export default App;
+export default observer (App);

@@ -1,17 +1,22 @@
-import React, { useState,  FormEvent } from 'react'
+import React, { useState,  FormEvent, useContext } from 'react'
 import { Segment, Form, Button } from 'semantic-ui-react'
 import { IActivity } from '../../../app/models/Activity'
 import { v4 as uuid } from 'uuid';
+import ActivityStore from "../../../app/stores/activityStore";
+import { observer } from 'mobx-react-lite';
 
 interface IProp {
-    setMode: (modeState: boolean) => void;
+    // setMode: (modeState: boolean) => void;
     SelectedActivityState: IActivity; //activity kiyana eka
-    createActivity: (activity: IActivity) => void;
-    editActivity: (activity: IActivity) => void;
-    submitting:boolean;
+    // createActivity: (activity: IActivity) => void;
+    // editActivity: (activity: IActivity) => void;
+    // submitting:boolean;
 }
 
-const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState:initialFormState, createActivity, editActivity,  submitting }) => {
+const ActivityForm: React.FC<IProp> = ({  SelectedActivityState:initialFormState }) => {
+
+    const activityStore = useContext(ActivityStore);
+    const {createActivity,editActivity,submitting,cancelFormOpen}=activityStore;
 
     const initializedForm = () => {
         if (initialFormState) {
@@ -107,7 +112,7 @@ const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState:initialF
                     positive />
 
                 <Button
-                    onClick={() => setMode(false)}
+                    onClick={cancelFormOpen}
                     floated='right'
                     content="Cancel" />
 
@@ -116,4 +121,4 @@ const ActivityForm: React.FC<IProp> = ({ setMode, SelectedActivityState:initialF
     )
 }
 
-export default ActivityForm
+export default  observer (ActivityForm); 

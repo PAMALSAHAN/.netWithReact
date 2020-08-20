@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Menu, Container, Button } from "semantic-ui-react";
-
+import ActivityStore from "../../app/stores/activityStore";
+import { observer } from "mobx-react-lite";
 interface IProp{
-  OpenCreateForm:()=>void;
+  // OpenCreateForm:()=>void;
 }
 
 //react array functional component
-export const NavBar :React.FC<IProp> = ({OpenCreateForm}) => {
+const NavBar :React.FC<IProp> = () => {
+
+  const activityStore = useContext(ActivityStore);
   return (
 
     
@@ -15,16 +18,23 @@ export const NavBar :React.FC<IProp> = ({OpenCreateForm}) => {
             <Menu.Item header >
               
               <img src="/assets/venso.png" alt  ="logo" style={{marginRight: 10}} />
-              Reactivities
+              You Can Follow
               
 
             </Menu.Item>
             <Menu.Item name="Activities" />
             <Menu.Item >
-              <Button onClick={OpenCreateForm} positive content="Create Activity" />
+              <Button onClick={activityStore.openCreateForm} positive content="Create Activity" />
             </Menu.Item>
       </Container>
     
     </Menu>
   );
 };
+
+export default observer(NavBar);
+
+
+
+
+
