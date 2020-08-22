@@ -1,13 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Card, Image, Button } from "semantic-ui-react";
-import { IActivity } from '../../../app/models/Activity';   
 import  ActivityStore  from "../../../app/stores/activityStore";
 import { observer } from 'mobx-react-lite';
-// interface IProps{
-//     // Activity:IActivity;
-//     setMode:(modeState:boolean)=>void; 
-//     SetSelectedActivity:(activity:IActivity |null)=>void
-// }
+
 
 const ActivityDetails:React.FC = () => {
     const activityStore = useContext(ActivityStore)

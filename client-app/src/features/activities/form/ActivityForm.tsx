@@ -3,10 +3,13 @@ import { Segment, Form, Button } from 'semantic-ui-react'
 import { IActivity } from '../../../app/models/Activity'
 import { v4 as uuid } from 'uuid';
 import ActivityStore from "../../../app/stores/activityStore";
+
 import { observer } from 'mobx-react-lite';
 
 interface IProp {
-    // setMode: (modeState: boolean) => void;
+   
+    
+
     SelectedActivityState: IActivity; //activity kiyana eka
     // createActivity: (activity: IActivity) => void;
     // editActivity: (activity: IActivity) => void;

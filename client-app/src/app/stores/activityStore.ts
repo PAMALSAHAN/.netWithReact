@@ -1,8 +1,9 @@
-import { observable, action, computed } from "mobx";
+import { observable, action, computed,configure,runInAction } from "mobx";
 import { createContext, SyntheticEvent } from "react";
 import { IActivity } from "../models/Activity";
 import agent from "../api/agent";
 
+configure ({enforceActions:'always'});
 class ActivityStore {
     @observable activities: IActivity[] = [];
     @observable loadingInitial = false;
@@ -33,28 +34,24 @@ class ActivityStore {
 
         try {
             const activities = await agent.Activities.list();
-            activities.forEach((activity) => {
-                activity.date = activity.date.split(".")[0];
-                // this.activities.push(activity);
-                this.activityRegistry.set(activity.id, activity);
-            });
+            runInAction('loading activities',()=>{
+                activities.forEach((activity) => {
+                    activity.date = activity.date.split(".")[0];
+                    // this.activities.push(activity);
+                    this.activityRegistry.set(activity.id, activity);
+                });
+            })
+            this.loadingInitial = false;
 
-            this.loadingInitial = false;
         } catch (error) {
-            console.log(error);
-            this.loadingInitial = false;
+            runInAction('load activities error',()=>{
+                this.loadingInitial = false;
+                
+            })
+           
+        
         }
 
-        // agent.Activities.list()
-        // .then((Response) => {
-        //   //date eka split karanna use kranne.
-        // //   let activityState:IActivity[]=[]; //state ma wenna one naha kamathi ekak use kranna puluwan.
-        //   Response.forEach((activity)=>{
-        //     activity.date=activity.date.split('.')[0];
-        //     this.activities.push(activity);
-        //   });
-
-        // }).finally(()=>this.loadingInitial=false);
     };
 
     @action selectActivity = (id: string) => {
@@ -70,11 +67,17 @@ class ActivityStore {
         try {
             await agent.Activities.create(activity);
             // this.activities.push(activity);
-            this.activityRegistry.set(activity.id, activity);
-            this.editMode = false;
-            this.submitting = false;
+            runInAction('creating activity',()=>{
+                this.activityRegistry.set(activity.id, activity);
+                this.editMode = false;
+                this.submitting = false;
+            })
+            
         } catch (error) {
-            this.submitting = false;
+            runInAction('create activity error',()=>{
+                this.submitting = false;
+            })
+        
             console.log(error);
         }
     };
@@ -85,13 +88,19 @@ class ActivityStore {
         
         try {
             await agent.Activities.delete(id);
-            this.activityRegistry.delete(id); //naththma filer karala ganna one
-            this.submitting=false;
-            this.target='';
+            runInAction('deleting activity',()=>{
+                this.activityRegistry.delete(id); //naththma filer karala ganna one
+                this.submitting=false;
+                this.target='';
+            })
+            
         } catch (error) {
+            runInAction('delete activity error',()=>{
+                this.submitting=false;
+                this.target='';
+            })
             console.log(error);
-            this.submitting=false;
-            this.target='';
+        
         }
 
 
@@ -125,13 +134,18 @@ class ActivityStore {
     @action editActivity = async (activity: IActivity) => {
         this.submitting = true;
         try {
-            agent.Activities.update(activity);
-            this.activityRegistry.set(activity.id, activity);
-            this.selectedActivity = activity;
-            this.editMode = false;
-            this.submitting = false;
+            await agent.Activities.update(activity);
+            runInAction('editing activity',()=>{
+                this.activityRegistry.set(activity.id, activity);
+                this.selectedActivity = activity;
+                this.editMode = false;
+                this.submitting = false;
+            })
+            
         } catch (error) {
-            this.submitting=false;
+            runInAction('edit activity error',()=>{
+                this.submitting=false;
+            })
             console.log(error);
         }
     };
